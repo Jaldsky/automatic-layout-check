@@ -32,3 +32,7 @@ FeatureMatrix = ndarray
 class ComparatorResult(TypedDict):
     is_similar: str
     percent: float
+
+# typing for ModelManager class
+ModelName = str
+RecordArgs = Any

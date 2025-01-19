@@ -20,6 +20,7 @@ class PlayWrightActionMessages(StringEnum):
 class ImageException(FormException):
     """Исключение Image."""
 
+
 class ImageMessages(StringEnum):
     """Сообщения для класса PlayWright."""
 
@@ -63,3 +64,19 @@ class ComparatorMessages(StringEnum):
     PREPARE_IMG_TYPE_ERROR: str = "Ошибка типа при подготовке к сравнению изображений!"
     PREPARE_IMG: str = "Подготовка изображения к сравнению..."
     RESULT_COMPARATOR: str = "Изображения похожи на {percent} процента"
+
+
+class ModelManagerException(FormException):
+    """Исключение ModelManager."""
+
+
+class ModelManagerMessages(StringEnum):
+    """Сообщения для класса ModelManager."""
+
+    INVALID_MODEL_NAME_TYPE_ERROR: str = "Некорректный тип имени модели!"
+    EMPTY_KWARGS_ERROR: str = "Отсутствуют аргументы фильтрации!"
+
+    GET_MODEL_ERROR: str = "Ошибка во время получения модели: {msg}"
+    DELETE_RECORD_ERROR: str = "Ошибка во время удаления записи: {msg}"
+    GET_OR_CREATE_RECORD_ERROR: str = "Ошибка во время создания/получения записи: {msg}"
+    GET_ALL_RECORDS_ERROR: str = "Ошибка во время получения всех записей в таблице: {msg}"

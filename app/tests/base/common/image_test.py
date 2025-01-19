@@ -5,7 +5,7 @@ from psd_tools import PSDImage
 
 from app.base.common.general import merge_path_elements, get_current_path, remove_file_or_folder, is_file_exists
 from app.base.common.image import Image, ImageCV
-from app.base.types import Path, ImgPath, ImageMatrix, ImgSavePath, ImgSize
+from app.base.types import Path, ImgPath, ImgMatrix, ImgSavePath, ImgSize
 
 
 class TestImage(TestCase):
@@ -64,7 +64,7 @@ class TestImageCV(TestCase):
 
     def test_open_image(self) -> None:
         with self.subTest("Read image"):
-            self.assertIsInstance(self.instance.read_image(self.img_with_text_path), ImageMatrix)
+            self.assertIsInstance(self.instance.read_image(self.img_with_text_path), ImgMatrix)
 
         with self.subTest("Invalid image path"), self.assertRaises(self.exception) as e:
             _ = self.instance.read_image("test")
@@ -72,7 +72,7 @@ class TestImageCV(TestCase):
 
     def test_save_image(self) -> None:
         save_path: Path = merge_path_elements([self.dir_data_path, 'test_img.png'])
-        img_matrix: ImageMatrix = self.instance.read_image(self.img_with_text_path)
+        img_matrix: ImgMatrix = self.instance.read_image(self.img_with_text_path)
 
         remove_file_or_folder(save_path)
         with self.subTest("Save image"):
@@ -88,7 +88,7 @@ class TestImageCV(TestCase):
         self.assertEqual(self.messages.INVALID_IMG_SAVE_PATH_ERROR, e.exception.message)
 
     def test_resize_image(self) -> None:
-        img_matrix: ImageMatrix = self.instance.read_image(self.img_with_text_path)
+        img_matrix: ImgMatrix = self.instance.read_image(self.img_with_text_path)
         img_size: ImgSize = (500, 500)
 
         with self.subTest("Resize image"):
@@ -105,7 +105,7 @@ class TestImageCV(TestCase):
         self.assertEqual(self.messages.IMG_SIZE_TYPE_ERROR, e.exception.message)
 
     def test_convert_image_to_grayscale(self) -> None:
-        img_matrix: ImageMatrix = self.instance.read_image(self.img_with_text_path)
+        img_matrix: ImgMatrix = self.instance.read_image(self.img_with_text_path)
 
         with self.subTest("Convert image to white-black format"):
             img_grayscale = self.instance.convert_image_to_grayscale(img_matrix)
@@ -116,7 +116,7 @@ class TestImageCV(TestCase):
         self.assertEqual(self.messages.IMG_MATRIX_TYPE_ERROR, e.exception.message)
 
     def test_convert_image_to_rgb(self) -> None:
-        img_matrix: ImageMatrix = self.instance.read_image(self.img_with_text_path)
+        img_matrix: ImgMatrix = self.instance.read_image(self.img_with_text_path)
 
         img_grayscale = self.instance.convert_image_to_grayscale(img_matrix)
         with self.subTest("Convert image to RGB-format"):
@@ -133,8 +133,8 @@ class TestImageCV(TestCase):
         img_text_path: Path = merge_path_elements([self.dir_data_path, 'img_with_text_test.png'])
         img_text_hided_path: Path = merge_path_elements([self.dir_data_path, 'img_with_text_hided.png'])
 
-        img_text_matrix: ImageMatrix = self.instance.read_image(img_text_path)
-        img_text_hided_matrix: ImageMatrix = self.instance.read_image(img_text_hided_path)
+        img_text_matrix: ImgMatrix = self.instance.read_image(img_text_path)
+        img_text_hided_matrix: ImgMatrix = self.instance.read_image(img_text_hided_path)
 
         with self.subTest("The same images, matrix"):
             self.assertTrue(self.instance.is_images_the_same_pixels(img_text_matrix, img_text_matrix))
@@ -160,7 +160,7 @@ class TestImageCV(TestCase):
             self.instance.found_and_hide_text_on_image(img_path_before, save_path=img_path_after)
             self.assertTrue(is_file_exists(img_path_after))
 
-            img_matrix_before: ImageMatrix = self.instance.read_image(img_path_before)
-            img_matrix_after: ImageMatrix = self.instance.read_image(img_path_after)
+            img_matrix_before: ImgMatrix = self.instance.read_image(img_path_before)
+            img_matrix_after: ImgMatrix = self.instance.read_image(img_path_after)
 
             self.assertFalse(self.instance.is_images_the_same_pixels(img_matrix_before, img_matrix_after))
