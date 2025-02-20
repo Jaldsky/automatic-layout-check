@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
-from app.base.views_base import ViewBase
-from app.engine.сontroller import Controller
+from app.libs.framework.views_base import ViewBase
+# from app.сontroller import Controller
 from app.forms import UserRegistrationForm, UserSettingsForm
 
 from app.models import UserSettings

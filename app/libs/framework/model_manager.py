@@ -3,8 +3,8 @@ from typing import NoReturn
 from django.apps import apps
 from django.db.models import Model
 
-from app.base.exceptions import ModelManagerException, ModelManagerMessages
-from app.base.types import ModelName, RecordArgs
+from app.libs.exceptions import ModelManagerException, ModelManagerMessages
+from app.libs.types import ModelName, RecordArgs
 
 
 class ModelManager:

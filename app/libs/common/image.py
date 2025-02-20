@@ -4,10 +4,10 @@ import cv2 as cv
 from easyocr import easyocr
 from psd_tools import PSDImage
 
-from app.base.common.general import is_file_exists
-from app.base.constants import Language, FILL_TEXT_COLOR
-from app.base.exceptions import ImageException, ImageMessages, ImageCVMessages, ImageCVException
-from app.base.types import ImgPath, FromFormatImg, ToFormatImg, ImgMatrix, ImgSavePath, ImgSize
+from app.libs.common.general import is_file_exists
+from app.libs.constants import Language, FILL_TEXT_COLOR
+from app.libs.exceptions import ImageException, ImageMessages, ImageCVMessages, ImageCVException
+from app.libs.types import ImgPath, FromFormatImg, ToFormatImg, ImgMatrix, ImgSavePath, ImgSize
 
 
 class Image:

@@ -2,7 +2,7 @@ from unittest import TestCase
 
 from django.db.models.base import ModelBase
 from django.db.models import Model
-from app.base.framework.model_manager import ModelManager
+from app.libs.framework.model_manager import ModelManager
 
 
 class TestModelManager(TestCase):
