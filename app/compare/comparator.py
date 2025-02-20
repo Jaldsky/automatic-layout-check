@@ -94,9 +94,13 @@ class Comparator(ComparatorBase):
         img_first_shape = img_matrix_first.shape
         img_second_shape = img_matrix_first.shape
         if img_first_shape[0] * img_first_shape[1] < img_second_shape[0] * img_second_shape[1]:
-            img_matrix_second = self.image_cv.resize_image(img_matrix_second, (img_first_shape[1], img_first_shape[0]))
+            img_matrix_second = self.image_cv.resize_image(
+                img_matrix_second, (img_first_shape[1], img_first_shape[0])
+            )
         else:
-            img_matrix_first = self.image_cv.resize_image(img_matrix_first, (img_second_shape[1], img_second_shape[0]))
+            img_matrix_first = self.image_cv.resize_image(
+                img_matrix_first, (img_second_shape[1], img_second_shape[0])
+            )
         return img_matrix_first, img_matrix_second
 
     def prepare_images(
@@ -129,10 +133,16 @@ class Comparator(ComparatorBase):
             img_matrix_second = self.image_cv.resize_image(img_matrix_second, img_shape)
             return img_matrix_first, img_matrix_second
 
-        if img_matrix_first.shape[0] * img_matrix_first.shape[1] < img_matrix_second.shape[0] * img_matrix_second.shape[1]:
-            img_matrix_second = self.image_cv.resize_image(img_matrix_second, (img_matrix_first.shape[1], img_matrix_first.shape[0]))
+        shape_one = img_matrix_first.shape[0] * img_matrix_first.shape[1]
+        shape_two = img_matrix_second.shape[0] * img_matrix_second.shape[1]
+        if shape_one < shape_two:
+            img_matrix_second = self.image_cv.resize_image(
+                img_matrix_second, (img_matrix_first.shape[1], img_matrix_first.shape[0])
+            )
         else:
-            img_matrix_first = self.image_cv.resize_image(img_matrix_first, (img_matrix_second.shape[1], img_matrix_second.shape[0]))
+            img_matrix_first = self.image_cv.resize_image(
+                img_matrix_first, (img_matrix_second.shape[1], img_matrix_second.shape[0])
+            )
 
         return img_matrix_first, img_matrix_second
 
