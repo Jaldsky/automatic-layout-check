@@ -2,8 +2,8 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import NoReturn
 
-from app.base.exceptions import PlayWrightActionException, PlayWrightActionMessages
-from app.base.types import Driver, Browser, Config, PageLocator, PlayWrightPage, ScreenSavePath
+from app.libs.exceptions import PlayWrightActionException, PlayWrightActionMessages
+from app.libs.types import Driver, Browser, Config, PageLocator, PlayWrightPage, ScreenSavePath
 
 
 class WebDriver(ABC):

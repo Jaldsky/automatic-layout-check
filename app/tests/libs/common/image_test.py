@@ -3,9 +3,9 @@ from unittest.mock import patch
 
 from psd_tools import PSDImage
 
-from app.base.common.general import merge_path_elements, get_current_path, remove_file_or_folder, is_file_exists
-from app.base.common.image import Image, ImageCV
-from app.base.types import Path, ImgPath, ImgMatrix, ImgSavePath, ImgSize
+from app.libs.common.general import merge_path_elements, get_current_path, remove_file_or_folder, is_file_exists
+from app.libs.common.image import Image, ImageCV
+from app.libs.types import Path, ImgPath, ImgMatrix, ImgSavePath, ImgSize
 
 
 class TestImage(TestCase):

@@ -4,7 +4,7 @@ import shutil
 from dataclasses import dataclass
 from enum import Enum
 
-from app.base.types import Path
+from app.libs.types import Path
 
 
 @dataclass

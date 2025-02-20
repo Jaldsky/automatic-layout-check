@@ -1,4 +1,4 @@
-from app.base.common.general import FormException, StringEnum
+from app.libs.common.general import FormException, StringEnum
 
 
 class PlayWrightActionException(FormException):

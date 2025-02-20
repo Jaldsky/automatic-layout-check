@@ -7,10 +7,10 @@ from keras.src.applications.vgg16 import VGG16, preprocess_input
 from skimage.metrics import structural_similarity
 from sklearn.metrics.pairwise import cosine_similarity
 
-from app.base.common.general import setup_logging, StringEnum
-from app.base.common.image import ImageCV
-from app.base.exceptions import ComparatorException, ComparatorMessages
-from app.base.types import (
+from app.libs.common.general import setup_logging, StringEnum
+from app.libs.common.image import ImageCV
+from app.libs.exceptions import ComparatorException, ComparatorMessages
+from app.libs.types import (
     ImgPath,
     Similarity,
     ImgMatrix,

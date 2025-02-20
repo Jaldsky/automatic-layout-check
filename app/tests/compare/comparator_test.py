@@ -3,8 +3,8 @@ from unittest.mock import patch, Mock
 
 from PIL import ImagePath
 
-from app.base.common.general import merge_path_elements, get_current_path
-from app.base.types import Path, ImgMatrix
+from app.libs.common.general import merge_path_elements, get_current_path
+from app.libs.types import Path, ImgMatrix
 from app.compare.comparator import Comparator, IsSimilar
 
 

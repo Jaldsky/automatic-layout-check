@@ -3,9 +3,9 @@ from unittest.mock import Mock, patch
 
 from playwright.sync_api import sync_playwright
 
-from app.base.common.general import remove_file_or_folder, is_file_exists, merge_path_elements, get_current_path
-from app.base.common.web_driver import PlayWrightAction, PlaywrightSettings
-from app.base.types import Browser, PlayWrightPage, PageLocator, ScreenSavePath, Path
+from app.libs.common.general import remove_file_or_folder, is_file_exists, merge_path_elements, get_current_path
+from app.libs.common.web_driver import PlayWrightAction, PlaywrightSettings
+from app.libs.types import Browser, PlayWrightPage, PageLocator, ScreenSavePath, Path
 
 
 class TestPlaywright(TestCase):
